@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+$primary: #358ccb;
+$textColor: #1d2130;
+$textColorMuted: #767883;
+$black: #1e2123;
+
+:root {
+  font-family: "Merriweather Sans", sans-serif;
+}
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  background-color: #fafbff;
+}
+
+.truncate {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--number-of-lines);
+  overflow: hidden;
+}
+
+.debug-lines {
+  outline: 2px solid red;
+  outline-offset: 2px;
+}

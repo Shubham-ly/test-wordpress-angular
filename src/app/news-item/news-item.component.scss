@@ -1,0 +1,79 @@
+@import "../../styles.scss";
+
+.post-item {
+  position: relative;
+  max-width: 411px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+
+  .featured-media {
+    height: 256px;
+    width: 411px;
+    img {
+      height: 100%;
+      width: 100%;
+      border-radius: 10px;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+    }
+  }
+
+  .post-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: $textColor;
+    line-height: 28px;
+    margin-top: 24px;
+    --number-of-lines: 2;
+  }
+
+  .post-info {
+    color: $textColor;
+    opacity: 0.6;
+    margin-top: 12px;
+    font-weight: 700;
+    font-size: 14px;
+  }
+
+  .post-excerpt {
+    font-weight: 300;
+    font-size: 14px;
+    color: $textColor;
+    opacity: 0.87;
+    margin-top: 8px;
+    --number-of-lines: 2;
+  }
+
+  .category-chip {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    padding: 6px 8px;
+    border-radius: 5px;
+    font-weight: 700;
+    background-color: #e4dcca;
+
+    &.events {
+      background-color: #c7eafb;
+    }
+    &.blogs {
+      background-color: #fdd1b0;
+    }
+    &.webinar {
+      background-color: #ffffffcc;
+    }
+    &.video-gallery {
+      background-color: #ffffffcc;
+    }
+  }
+
+  .post-cta {
+    font-weight: 700;
+    color: $primary;
+    font-size: 12px;
+    outline: none;
+    text-decoration: none;
+    margin-top: 12px;
+  }
+}

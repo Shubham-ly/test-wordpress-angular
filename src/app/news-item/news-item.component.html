@@ -1,0 +1,27 @@
+<div class="post-item" (click)="onNewsClick()">
+  <div class="featured-media" *ngIf="news.featured_media; else noFeaturedImage">
+    <img [src]="news.featured_media" />
+  </div>
+  <ng-template #noFeaturedImage>
+    <div class="featured-media">
+      <img src="https://via.placeholder.com/410x256" alt="" />
+    </div>
+  </ng-template>
+  <div
+    class="category-chip"
+    [ngClass]="newsCategory.replace(' ', '-').toLowerCase()"
+  >
+    <span>{{ newsCategory || "News" }}</span>
+  </div>
+
+  <h4 class="post-title truncate">{{ news.post_title }}</h4>
+
+  <!-- TODO: Fix the post date formatting -->
+  <span class="post-info">{{ news.author_name }} | {{ news.post_date }}</span>
+
+  <p class="post-excerpt truncate" [innerHTML]="news.excerpt"></p>
+
+  <a class="post-cta" [routerLink]="['/post', news.ID]" [state]="{ post: news }"
+    >Read More</a
+  >
+</div>
