@@ -10,16 +10,15 @@ import { Post } from 'types/post';
 export class NewsItemComponent implements OnInit {
   @Input()
   news!: Post;
-  newsCategory: string = '';
+  newsCategory: { name: string; slug: string } = {
+    name: 'News',
+    slug: 'news',
+  };
 
   constructor(private router: Router) {}
 
   ngOnInit(): void {
-    if (this.news.categories.length > 1) {
-      this.newsCategory = this.news.categories[1].name;
-    } else {
-      this.newsCategory = this.news.categories[0].name;
-    }
+    this.newsCategory = this.news.categories[0];
   }
 
   onNewsClick(): void {

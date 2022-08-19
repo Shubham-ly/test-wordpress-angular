@@ -23,16 +23,11 @@ export type Post = {
   post_mime_type: string;
   comment_count: string;
   filter: string;
-  categories: [
-    {
-      name: string;
-      id: number;
-    },
-    {
-      name: string;
-      id: number;
-    }
-  ];
+  categories: {
+    name: string;
+    id: number;
+    slug: string;
+  }[];
   featured_media: boolean | string;
   author_name: string;
   excerpt: string;

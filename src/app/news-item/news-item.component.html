@@ -7,21 +7,20 @@
       <img src="https://via.placeholder.com/410x256" alt="" />
     </div>
   </ng-template>
-  <div
-    class="category-chip"
-    [ngClass]="newsCategory.replace(' ', '-').toLowerCase()"
-  >
-    <span>{{ newsCategory || "News" }}</span>
+  <div class="category-chip" [ngClass]="newsCategory.slug">
+    <span>{{ newsCategory.name }}</span>
   </div>
 
-  <h4 class="post-title truncate">{{ news.post_title }}</h4>
-
-  <!-- TODO: Fix the post date formatting -->
-  <span class="post-info">{{ news.author_name }} | {{ news.post_date }}</span>
-
-  <p class="post-excerpt truncate" [innerHTML]="news.excerpt"></p>
-
-  <a class="post-cta" [routerLink]="['/post', news.ID]" [state]="{ post: news }"
-    >Read More</a
-  >
+  <div class="post-detail-container">
+    <h4 class="post-title truncate">{{ news.post_title }}</h4>
+    <!-- TODO: Fix the post date formatting -->
+    <span class="post-info">{{ news.author_name }} | {{ news.post_date }}</span>
+    <p class="post-excerpt truncate" [innerHTML]="news.excerpt"></p>
+    <a
+      class="post-cta"
+      [routerLink]="['/post', news.ID]"
+      [state]="{ post: news }"
+      >Read More</a
+    >
+  </div>
 </div>

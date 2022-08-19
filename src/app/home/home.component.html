@@ -1,22 +1,38 @@
-<div class="filter-container">
-  <div class="news-category-selector">
-    <div *ngFor="let category of categories">
-      <button
-        (click)="setSelectedCategory(category.id)"
-        class="news-category"
-        [ngClass]="{ selected: selectedCategory === category.id }"
-      >
-        {{ category.name }}
-      </button>
+<div class="news-container">
+  <div class="filter-container">
+    <div class="news-category-selector">
+      <div *ngFor="let category of categories">
+        <button
+          (click)="setSelectedCategory(category.id)"
+          class="news-category"
+          [ngClass]="{ selected: selectedCategory === category.id }"
+        >
+          {{ category.name }}
+        </button>
+      </div>
+    </div>
+    <div class="year-filter">
+      <p>Filter by year:</p>
+      <dropdown-selector
+        [title]="'Year'"
+        [options]="dropdownOptions"
+        (currentValueChange)="dropdownValueChanged($event)"
+      ></dropdown-selector>
     </div>
   </div>
-  <div class="year-filter">
-    <p>Filter by year:</p>
-  </div>
-</div>
 
-<div class="post-item-container">
-  <div *ngFor="let post of filteredPosts">
-    <app-news-item [news]="post"></app-news-item>
+  <div class="post-item-container">
+    <div *ngFor="let post of filteredPosts">
+      <app-news-item [news]="post"></app-news-item>
+    </div>
+  </div>
+
+  <div class="pagination-container">
+    <button
+      class="pagination-button"
+      *ngFor="let page of [].constructor(totalPages); let i = index"
+    >
+      {{ i }}
+    </button>
   </div>
 </div>

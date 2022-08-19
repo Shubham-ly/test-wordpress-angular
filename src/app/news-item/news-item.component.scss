@@ -3,13 +3,15 @@
 .post-item {
   position: relative;
   max-width: 411px;
+  min-height: 432px;
   display: flex;
   flex-direction: column;
   cursor: pointer;
 
   .featured-media {
     height: 256px;
-    width: 411px;
+    overflow: hidden;
+    max-width: 411px;
     img {
       height: 100%;
       width: 100%;
@@ -19,12 +21,18 @@
     }
   }
 
+  .post-detail-container {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    margin-top: 24px;
+  }
+
   .post-title {
     font-size: 20px;
     font-weight: 700;
     color: $textColor;
     line-height: 28px;
-    margin-top: 24px;
     --number-of-lines: 2;
   }
 
@@ -46,9 +54,11 @@
   }
 
   .category-chip {
+    --offset: 6px;
     position: absolute;
-    top: 12px;
-    right: 12px;
+    top: var(--offset);
+    right: var(--offset);
+    font-size: 10px;
     padding: 6px 8px;
     border-radius: 5px;
     font-weight: 700;
@@ -74,6 +84,6 @@
     font-size: 12px;
     outline: none;
     text-decoration: none;
-    margin-top: 12px;
+    margin-top: auto;
   }
 }
