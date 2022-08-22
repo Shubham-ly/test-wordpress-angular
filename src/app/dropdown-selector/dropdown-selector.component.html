@@ -4,7 +4,7 @@
     aria-haspopup="listbox"
     aria-labelledby="dropdown-label"
     (click)="toggleDropdown()"
-    (clickOutside)="dropdownOpen = false"
+    (clickOutside)="closeDropdown()"
     [ngClass]="{ active: dropdownOpen }"
   >
     <span class="dropdown-value" id="dropdown-value">{{

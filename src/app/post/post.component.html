@@ -1,4 +1,20 @@
-<div [innerHTML]="post?.post_content"></div>
+<div *ngIf="isLoading; else showPost">Loading...</div>
+
+<ng-template #showPost>
+  <main class="wp-container-10 wp-block-group">
+    <div class="wp-container-6 wp-block-group">
+      <h1 class="alignwide wp-block-post-title">
+        {{ post?.post_title }}
+      </h1>
+    </div>
+
+    <div
+      class="wp-container-7 entry-content wp-block-post-content"
+      [innerHTML]="post?.post_content"
+    ></div>
+  </main>
+</ng-template>
+
 <!-- <div *ngIf="post !== null; else postNotFound">
   <iframe src="http://127.0.0.1/blog/this-is-video-post"></iframe>
 </div>

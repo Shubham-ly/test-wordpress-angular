@@ -31,4 +31,5 @@ export type Post = {
   featured_media: boolean | string;
   author_name: string;
   excerpt: string;
+  featured_video: string;
 };

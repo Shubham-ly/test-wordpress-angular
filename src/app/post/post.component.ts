@@ -13,6 +13,7 @@ export class PostComponent implements OnInit {
   post: Post | null = null;
   refId: string = 'post-styles';
   postUrl: string | null = null;
+  isLoading = true;
 
   constructor(private route: ActivatedRoute, private postService: PostService) {
     this.post = history.state?.post;
@@ -34,6 +35,7 @@ export class PostComponent implements OnInit {
         styleTag.innerHTML += css;
       });
       document.head.appendChild(styleTag);
+      this.isLoading = false;
     });
   }
 
@@ -46,7 +48,7 @@ export class PostComponent implements OnInit {
         .subscribe((data) => (this.post = data));
     }
     this.postUrl = `${environment.baseUrl}/${this.post?.post_name}`;
-    // this.getPostCss();
+    this.getPostCss();
   }
 
   ngOnDestroy(): void {

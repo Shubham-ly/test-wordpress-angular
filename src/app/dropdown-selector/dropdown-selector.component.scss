@@ -19,6 +19,7 @@ $width: 111px;
   cursor: pointer;
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 10px;
   transition: box-shadow ease-out 300ms;
 
@@ -29,6 +30,7 @@ $width: 111px;
   .dropdown-value {
     color: #64607d;
     font-size: 16px;
+    font-family: $primaryFont;
   }
 
   .dropdown-arrow {

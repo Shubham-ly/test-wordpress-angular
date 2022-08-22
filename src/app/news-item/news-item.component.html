@@ -1,20 +1,37 @@
-<div class="post-item" (click)="onNewsClick()">
-  <div class="featured-media" *ngIf="news.featured_media; else noFeaturedImage">
-    <img [src]="news.featured_media" />
+<div class="post-item">
+  <div
+    class="featured-media is-video"
+    *ngIf="news.featured_video; else showFeaturedMedia"
+    (click)="(onVideoClicked)"
+  >
+    <video [ngClass]="{ maximizeVideo }" [src]="news.featured_video"></video>
+    <img class="play-btn" src="/assets/images/btn-play.svg" alt="play" />
   </div>
-  <ng-template #noFeaturedImage>
+
+  <ng-template #showFeaturedMedia>
+    <div
+      class="featured-media"
+      *ngIf="news.featured_media; else showPlaceholderMedia"
+    >
+      <img [src]="news.featured_media" />
+    </div>
+  </ng-template>
+
+  <ng-template #showPlaceholderMedia>
     <div class="featured-media">
       <img src="https://via.placeholder.com/410x256" alt="" />
     </div>
   </ng-template>
+
   <div class="category-chip" [ngClass]="newsCategory.slug">
     <span>{{ newsCategory.name }}</span>
   </div>
 
   <div class="post-detail-container">
     <h4 class="post-title truncate">{{ news.post_title }}</h4>
-    <!-- TODO: Fix the post date formatting -->
-    <span class="post-info">{{ news.author_name }} | {{ news.post_date }}</span>
+    <span class="post-info"
+      >{{ news.author_name }} &nbsp; | &nbsp; {{ postDate }}</span
+    >
     <p class="post-excerpt truncate" [innerHTML]="news.excerpt"></p>
     <a
       class="post-cta"

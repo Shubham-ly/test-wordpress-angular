@@ -15,7 +15,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, 400px);
   gap: 32px;
-  row-gap: 64px;
+  row-gap: 63px;
   margin-top: 48px;
 }
 
@@ -52,5 +52,44 @@
     color: #1e2123;
     font-size: 16px;
     min-width: fit-content;
+    margin-bottom: 0;
+  }
+}
+
+.pagination-container {
+  display: flex;
+  width: 100%;
+  margin-block: 52px;
+  justify-content: center;
+  gap: 16px;
+
+  .pagination-button {
+    font-family: $primaryFont;
+    padding: 15px 20px;
+    font-weight: 700;
+    font-size: 16px;
+    color: $primary;
+    border: 2px solid $primary;
+    border-radius: $borderRadius;
+    cursor: pointer;
+
+    &:hover {
+      background-color: unset;
+    }
+
+    &.selected {
+      background-color: $primary;
+      color: white;
+    }
+
+    &:disabled {
+      border-color: $borderColor;
+      cursor: not-allowed;
+    }
+
+    &:not(:disabled) img {
+      filter: invert(59%) sepia(11%) saturate(4734%) hue-rotate(179deg)
+        brightness(82%) contrast(91%);
+    }
   }
 }

@@ -29,8 +29,11 @@ export class PostService {
     );
   }
 
-  getPosts(page = 1): Observable<{ posts: Post[]; max_num_pages: number }> {
-    const url = `${this.apiUrl}/get-all-posts/?page=${page}`;
+  getPosts({
+    page = 1,
+    year = 2022,
+  }): Observable<{ posts: Post[]; max_num_pages: number }> {
+    const url = `${this.apiUrl}/get-all-posts/?page=${page}&year=${year}`;
     return this.http.get<Post[]>(url).pipe(
       tap((post) => console.log('Fetched posts: ', post)),
       catchError(this.handleError<Post[]>('get posts'))

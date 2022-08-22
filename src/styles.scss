@@ -6,9 +6,10 @@ $textColorMuted: #767883;
 $black: #1e2123;
 $borderColor: #cfd1d5;
 $borderRadius: 10px;
+$primaryFont: "Merriweather Sans", sans-serif;
 
 :root {
-  font-family: "Merriweather Sans", sans-serif;
+  font-family: $primaryFont;
 }
 
 *,
