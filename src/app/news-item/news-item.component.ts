@@ -16,6 +16,7 @@ type newsCategoryType = {
 export class NewsItemComponent implements OnInit {
   @Input()
   news!: Post;
+  isLoading = true;
   newsCategory: newsCategoryType = {
     name: 'News',
     slug: 'news',
@@ -28,11 +29,18 @@ export class NewsItemComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.newsCategory = this.news.categories[0];
     this.postDate = this.datePipe.transform(
       this.news.post_date,
       'd-MMM-y h:mm a'
     );
+    if (this.news.featured_video) {
+      this.news.featured_video = `https://youtube.com/embed/${
+        this.news.featured_video.split('=')[1]
+      }/?autohide=1`;
+    }
+    this.isLoading = false;
   }
 
   onNewsClick(): void {
@@ -41,9 +49,7 @@ export class NewsItemComponent implements OnInit {
     });
   }
 
-  onVideoClicked(e: any): void {
-    console.log('Video clicked');
-    e.stopPropagation();
+  onVideoClicked(): void {
     this.maximizeVideo = !this.maximizeVideo;
   }
 }

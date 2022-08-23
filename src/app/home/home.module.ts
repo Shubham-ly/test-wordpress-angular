@@ -6,6 +6,7 @@ import { HomeComponent } from './home.component';
 import { NewsItemComponent } from '../news-item/news-item.component';
 import { DropdownSelectorComponent } from '../dropdown-selector/dropdown-selector.component';
 import { ClickOutsideDirective } from '../click-outside.directive';
+import { SafePipe } from '../safe.pipe';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { ClickOutsideDirective } from '../click-outside.directive';
     NewsItemComponent,
     DropdownSelectorComponent,
     ClickOutsideDirective,
+    SafePipe,
   ],
   imports: [CommonModule, HomeRoutingModule],
 })

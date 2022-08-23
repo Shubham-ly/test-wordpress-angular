@@ -1,0 +1,27 @@
+<li>
+  <div
+    class="link-name"
+    [ngClass]="{ active: showSubLinks }"
+    (click)="showSubLinks = !showSubLinks"
+    (clickOutside)="showSubLinks = false"
+  >
+    <a [ngClass]="{ current: isActive }">
+      {{ navData.page_name }}
+    </a>
+    <img
+      *ngIf="navData.sub_links.length > 0"
+      src="/assets/images/nav-link-dropdown.svg"
+      alt=""
+    />
+  </div>
+
+  <ul
+    class="sub-links"
+    [ngClass]="{ show: showSubLinks }"
+    *ngIf="navData.sub_links.length > 0"
+  >
+    <li *ngFor="let subLink of navData.sub_links">
+      {{ subLink.page_name }}
+    </li>
+  </ul>
+</li>
