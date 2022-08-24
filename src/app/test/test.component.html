@@ -7,9 +7,9 @@
     <ul class="nav-links">
       <li *ngFor="let link of navLinks">
         <nav-link
-          (click)="currentPage = link.page_name"
+          (click)="onNavLinkClicked(link)"
           [navData]="link"
-          [isActive]="link.page_name === currentPage"
+          [isActive]="link.name === currentPage.name"
         ></nav-link>
       </li>
     </ul>
@@ -20,3 +20,8 @@
     </div>
   </nav>
 </header>
+
+<main
+  *ngIf="currentPageData !== undefined"
+  [innerHTML]="currentPageData.post_content | safe"
+></main>

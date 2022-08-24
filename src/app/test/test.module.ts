@@ -3,10 +3,10 @@ import { NgModule } from '@angular/core';
 import { TestRoutingModule } from './test-routing.module';
 import { TestComponent } from './test.component';
 import { NavLinkComponent } from './nav-link/nav-link.component';
-import { ClickOutsideDirective } from '../click-outside.directive';
+import { DirectivesModule } from '../modules/directives/directive.module';
 
 @NgModule({
-  declarations: [TestComponent, NavLinkComponent, ClickOutsideDirective],
-  imports: [CommonModule, TestRoutingModule],
+  declarations: [TestComponent, NavLinkComponent],
+  imports: [CommonModule, TestRoutingModule, DirectivesModule],
 })
 export class TestModule {}

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CssData } from 'types/css-data';
-import { PostService } from './services/post.service';
+import { PostService } from './services/post-service/post.service';
 
 @Component({
   selector: 'app-root',

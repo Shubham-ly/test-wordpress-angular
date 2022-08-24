@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 type NavLinkType = {
-  page_name: string;
-  page_url: string;
+  name: string;
+  slug: string;
   sub_links: NavLinkType[];
 };
 

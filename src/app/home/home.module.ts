@@ -5,17 +5,10 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { NewsItemComponent } from '../news-item/news-item.component';
 import { DropdownSelectorComponent } from '../dropdown-selector/dropdown-selector.component';
-import { ClickOutsideDirective } from '../click-outside.directive';
-import { SafePipe } from '../safe.pipe';
+import { DirectivesModule } from '../modules/directives/directive.module';
 
 @NgModule({
-  declarations: [
-    HomeComponent,
-    NewsItemComponent,
-    DropdownSelectorComponent,
-    ClickOutsideDirective,
-    SafePipe,
-  ],
-  imports: [CommonModule, HomeRoutingModule],
+  declarations: [HomeComponent, NewsItemComponent, DropdownSelectorComponent],
+  imports: [CommonModule, HomeRoutingModule, DirectivesModule],
 })
 export class HomeModule {}

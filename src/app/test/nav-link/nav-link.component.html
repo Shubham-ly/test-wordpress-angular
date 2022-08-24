@@ -6,7 +6,7 @@
     (clickOutside)="showSubLinks = false"
   >
     <a [ngClass]="{ current: isActive }">
-      {{ navData.page_name }}
+      {{ navData.name }}
     </a>
     <img
       *ngIf="navData.sub_links.length > 0"
@@ -21,7 +21,7 @@
     *ngIf="navData.sub_links.length > 0"
   >
     <li *ngFor="let subLink of navData.sub_links">
-      {{ subLink.page_name }}
+      {{ subLink.name }}
     </li>
   </ul>
 </li>

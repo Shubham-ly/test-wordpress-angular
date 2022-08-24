@@ -2,16 +2,12 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
-
-type NavLink = {
-  page_name: string;
-  page_url: string;
-};
+import { Post } from 'types/post';
 
 @Injectable({
   providedIn: 'root',
 })
-export class NavLinksService {
+export class PageService {
   constructor(private http: HttpClient) {}
 
   private apiUrl = environment.apiUrl;
@@ -24,10 +20,10 @@ export class NavLinksService {
     };
   }
 
-  getNavLinks(): Observable<NavLink[]> {
-    const url = `${this.apiUrl}/get-nav-links`;
+  getPage(slug: string): Observable<any> {
+    const url = `${this.apiUrl}/get-page-by-id/${slug}`;
     return this.http
-      .get<NavLink[]>(url)
-      .pipe(catchError(this.handleError<NavLink[]>('get nav links')));
+      .get<Post>(url)
+      .pipe(catchError(this.handleError<Post>(`get page ${slug}`)));
   }
 }

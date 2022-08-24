@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NewsCategory } from 'types/news-category';
 import { Post } from 'types/post';
-import { NewsCategoryService } from '../services/news-category.service';
-import { PostService } from '../services/post.service';
+import { NewsCategoryService } from '../services/news-category-service/news-category.service';
+import { PostService } from '../services/post-service/post.service';
 
 @Component({
   selector: 'app-home',
