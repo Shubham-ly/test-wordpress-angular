@@ -10,7 +10,7 @@ export class AppComponent implements OnInit {
   constructor(private postService: PostService) {}
 
   ngOnInit(): void {
-    // this.getCss();
+    this.getCss();
   }
 
   getCss(): void {
@@ -22,11 +22,11 @@ export class AppComponent implements OnInit {
         document.head.appendChild(linkTag);
       });
 
-      const styleTag = document.createElement('style');
       data.inline.forEach((css) => {
-        styleTag.innerHTML += css;
+        const styleTag = document.createElement('style');
+        styleTag.innerHTML = css;
+        document.head.appendChild(styleTag);
       });
-      document.head.appendChild(styleTag);
     });
   }
 }

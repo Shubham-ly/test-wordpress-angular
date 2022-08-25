@@ -21,7 +21,10 @@
   </nav>
 </header>
 
-<main
-  *ngIf="currentPageData !== undefined"
-  [innerHTML]="currentPageData.post_content | safe"
-></main>
+<div *ngIf="isLoading; else showPage">Loading...</div>
+<ng-template #showPage>
+  <main
+    *ngIf="currentPageData !== undefined"
+    [innerHTML]="currentPageData.post_content | safe"
+  ></main>
+</ng-template>

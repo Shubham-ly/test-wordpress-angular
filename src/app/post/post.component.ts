@@ -10,7 +10,7 @@ import { PostService } from '../services/post-service/post.service';
   styleUrls: ['./post.component.scss'],
 })
 export class PostComponent implements OnInit {
-  post: Post | null = null;
+  post!: Post;
   refId: string = 'post-styles';
   postUrl: string | null = null;
   isLoading = true;

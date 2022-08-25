@@ -47,48 +47,48 @@ body {
 //   line-height: 48px;
 // }
 
-.home-about-rxil {
-  display: flex;
-  gap: 102px;
-  justify-content: center;
-  padding-inline: 72px;
-  margin-top: 72px;
+// .home-about-rxil {
+//   display: flex;
+//   gap: 102px;
+//   justify-content: center;
+//   padding-inline: 72px;
+//   margin-top: 72px;
 
-  h4 {
-    margin-top: 16px;
-  }
+//   h4 {
+//     margin-top: 16px;
+//   }
 
-  h2 {
-    margin-top: 8px;
-  }
+//   h2 {
+//     margin-top: 8px;
+//   }
 
-  p {
-    margin-top: 18px;
-    font-size: 18px;
-    font-weight: 300;
-    color: $secondaryTextColor;
-  }
+//   p {
+//     margin-top: 18px;
+//     font-size: 18px;
+//     font-weight: 300;
+//     color: $secondaryTextColor;
+//   }
 
-  .cta {
-    margin-top: 13px;
-    color: $primary;
-    font-weight: 700;
-    font-size: 16px;
-  }
-}
+//   .cta {
+//     margin-top: 13px;
+//     color: $primary;
+//     font-weight: 700;
+//     font-size: 16px;
+//   }
+// }
 
-.home-about-treds {
-  @extend .home-about-rxil;
-  margin-top: 104px;
-  gap: 95px;
+// .home-about-treds {
+//   @extend .home-about-rxil;
+//   margin-top: 104px;
+//   gap: 95px;
 
-  h4 {
-    margin-top: 30px;
-  }
-  p {
-    margin-top: 24px;
-  }
-  p + p {
-    margin-top: 0;
-  }
-}
+//   h4 {
+//     margin-top: 30px;
+//   }
+//   p {
+//     margin-top: 24px;
+//   }
+//   p + p {
+//     margin-top: 0;
+//   }
+// }

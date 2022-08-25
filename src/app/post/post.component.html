@@ -4,13 +4,13 @@
   <main class="wp-container-10 wp-block-group">
     <div class="wp-container-6 wp-block-group">
       <h1 class="alignwide wp-block-post-title">
-        {{ post?.post_title }}
+        {{ post.post_title }}
       </h1>
     </div>
 
     <div
       class="wp-container-7 entry-content wp-block-post-content"
-      [innerHTML]="post?.post_content"
+      [innerHTML]="post.post_content | safe"
     ></div>
   </main>
 </ng-template>
