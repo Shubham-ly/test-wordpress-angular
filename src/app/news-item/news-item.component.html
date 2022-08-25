@@ -11,7 +11,7 @@
         [ngClass]="{maximizeVideo}"
         width="100%"
         height="100%"
-        [src]="news.featured_video | safe"
+        [src]="news.featured_video | safe: 'resource'"
       >
       </iframe>
       <img class="play-btn" src="/assets/images/btn-play.svg" alt="play" />
