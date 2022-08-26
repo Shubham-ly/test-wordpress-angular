@@ -14,6 +14,7 @@ export class TestComponent implements OnInit {
   currentPage: any;
   currentPageData: Post | undefined;
   isLoading = true;
+  apiUrl = environment.apiUrl;
 
   constructor(
     private navLinkService: NavLinksService,
@@ -22,6 +23,16 @@ export class TestComponent implements OnInit {
 
   ngOnInit(): void {
     this.getNavLinks();
+    fetch(`${this.apiUrl}/get-page-body/home`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        // @ts-ignore
+        this.currentPageData = {
+          post_content: data.content.replace(/\\/g, ''),
+        };
+        this.isLoading = false;
+      });
   }
 
   getNavLinks(): void {
@@ -29,12 +40,13 @@ export class TestComponent implements OnInit {
       this.navLinks = data;
       console.log(this.navLinks);
       this.currentPage = this.navLinks[0];
-      this.fetchCurrentPage();
+      // this.fetchCurrentPage();
     });
   }
 
   fetchCurrentPage(): void {
     this.isLoading = true;
+    console.time(`Fetching page: ${this.currentPage.name}`);
     this.pageService.getPage(this.currentPage.slug).subscribe((data) => {
       this.currentPageData = data;
       console.log(data);
@@ -44,6 +56,7 @@ export class TestComponent implements OnInit {
       console.log(comments);
 
       this.isLoading = false;
+      console.timeEnd(`Fetching page: ${this.currentPage.name}`);
     });
   }
 
