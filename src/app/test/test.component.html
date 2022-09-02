@@ -1,26 +1,3 @@
-<header>
-  <nav>
-    <div class="nav-logo">
-      <img src="/assets/images/rxil-logo.png" alt="rxil logo" />
-    </div>
-
-    <ul class="nav-links">
-      <li *ngFor="let link of navLinks">
-        <nav-link
-          (click)="onNavLinkClicked(link)"
-          [navData]="link"
-          [isActive]="link.name === currentPage.name"
-        ></nav-link>
-      </li>
-    </ul>
-
-    <div class="nav-actions">
-      <button class="nav-button">Login</button>
-      <button class="nav-button primary">Register</button>
-    </div>
-  </nav>
-</header>
-
 <div *ngIf="isLoading; else showPage">Loading...</div>
 <ng-template #showPage>
   <main
@@ -28,10 +5,3 @@
     [innerHTML]="currentPageData.post_content | safe"
   ></main>
 </ng-template>
-
-<!-- <h1>-----------------------------------------------------</h1> -->
-
-<!-- <iframe
-  style="height: 100vh; width: 100%; border: none"
-  [src]="currentPage.url | safe: 'resource'"
-></iframe> -->

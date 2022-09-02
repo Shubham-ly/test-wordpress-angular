@@ -2,13 +2,17 @@
   <div
     class="link-name"
     [ngClass]="{ active: showSubLinks }"
-    (click)="showSubLinks = !showSubLinks"
     (clickOutside)="showSubLinks = false"
   >
-    <a [ngClass]="{ current: isActive }">
+    <a
+      (click)="reloadCurrentPage(navData)"
+      routerLink="{{ navData.slug }}"
+      [ngClass]="{ current: isActive }"
+    >
       {{ navData.name }}
     </a>
     <img
+      (click)="showSubLinks = !showSubLinks"
       *ngIf="navData.sub_links.length > 0"
       src="/assets/images/nav-link-dropdown.svg"
       alt=""

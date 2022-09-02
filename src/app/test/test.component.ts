@@ -1,7 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Post } from 'types/post';
-import { NavLinksService } from '../services/nav-links-service/nav-links.service';
-import { PageService } from '../services/page-service/page.service';
 import { environment } from '../../environments/environment';
 
 @Component({
@@ -10,30 +8,25 @@ import { environment } from '../../environments/environment';
   styleUrls: ['./test.component.scss'],
 })
 export class TestComponent implements OnInit {
-  navLinks: any;
-  currentPage: any;
+  @Input() currentPage = { name: 'Home', slug: 'home' };
   currentPageData: Post | undefined;
   isLoading = true;
   apiUrl = environment.apiUrl;
 
-  constructor(
-    private navLinkService: NavLinksService,
-    private pageService: PageService
-  ) {}
+  constructor() {}
 
   ngOnInit(): void {
-    this.getNavLinks();
+    const localStorageData = localStorage.getItem('rxil-current-page');
+    if (localStorageData) {
+      this.currentPage = JSON.parse(localStorageData);
+    }
+    this.fetchCurrentPage();
   }
 
-  getNavLinks(): void {
-    this.navLinkService.getNavLinks().subscribe((data) => {
-      this.navLinks = data;
-      this.currentPage = this.navLinks[0];
-      this.fetchCurrentPage();
-    });
-  }
+  ngOnChanges() {}
 
   async fetchCurrentPageResources() {
+    console.count('Fetched Page');
     const res = await fetch(
       `${this.apiUrl}/get-page-resources/${this.currentPage.slug}`
     );
@@ -56,14 +49,5 @@ export class TestComponent implements OnInit {
     };
     this.fetchCurrentPageResources();
     this.isLoading = false;
-  }
-
-  onNavLinkClicked(page: any): void {
-    document
-      .querySelectorAll(`#${this.currentPage.slug}-resource`)
-      .forEach((elem) => document.head.removeChild(elem));
-
-    this.currentPage = page;
-    this.fetchCurrentPage();
   }
 }

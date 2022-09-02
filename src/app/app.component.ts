@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { PostService } from './services/post-service/post.service';
+
+//! TODO: Fixing the news page
+// TODO: Creating and linking all the minor pages in wordpress
+// TODO: Ways to add new pages in wordpress without showing them up on the nav-links
+// TODO: Popup video component in wordpress
 
 @Component({
   selector: 'app-root',
@@ -9,38 +13,28 @@ import { PostService } from './services/post-service/post.service';
 })
 export class AppComponent implements OnInit {
   apiUrl = environment.apiUrl;
+  currentPage = { name: 'Home', slug: 'home' };
 
-  constructor(private postService: PostService) {}
+  constructor() {}
 
   ngOnInit(): void {
-    // this.getCss();
     this.getThemeStyle();
   }
 
   async getThemeStyle() {
     const res = await fetch(`${this.apiUrl}/get-styles`);
     const data = await res.json();
-    console.log(data);
     const linkTag = document.createElement('link');
     linkTag.setAttribute('rel', 'stylesheet');
     linkTag.setAttribute('href', data.link);
     document.head.appendChild(linkTag);
   }
 
-  getCss(): void {
-    this.postService.getCss().subscribe((data) => {
-      data.links.forEach((link) => {
-        const linkTag = document.createElement('link');
-        linkTag.setAttribute('rel', 'stylesheet');
-        linkTag.setAttribute('href', link);
-        document.head.appendChild(linkTag);
-      });
+  onNavLinkClicked(data: any) {
+    document
+      .querySelectorAll(`#${this.currentPage.slug}-resource`)
+      .forEach((elem) => document.head.removeChild(elem));
 
-      data.inline.forEach((css) => {
-        const styleTag = document.createElement('style');
-        styleTag.innerHTML = css;
-        document.head.appendChild(styleTag);
-      });
-    });
+    this.currentPage = data;
   }
 }

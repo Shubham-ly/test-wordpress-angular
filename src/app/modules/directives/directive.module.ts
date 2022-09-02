@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { ClickOutsideDirective } from './click-outside/click-outside.directive';
-import { SafePipe } from '../../safe.pipe';
+import { SafePipe } from '../pipes/safe-pipe/safe.pipe';
 
 @NgModule({
   imports: [],

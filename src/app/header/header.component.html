@@ -1,0 +1,21 @@
+<header>
+  <nav>
+    <div class="nav-logo">
+      <img src="/assets/images/rxil-logo.png" alt="rxil logo" />
+    </div>
+
+    <ul class="nav-links">
+      <li *ngFor="let link of navLinks">
+        <nav-link
+          [navData]="link"
+          [isActive]="link.slug === currentPageSlug"
+        ></nav-link>
+      </li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="nav-button">Login</button>
+      <button class="nav-button primary">Register</button>
+    </div>
+  </nav>
+</header>
