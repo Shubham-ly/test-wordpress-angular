@@ -40,7 +40,7 @@ export class TestComponent implements OnInit {
     const data = await res.json();
     const scriptTag = document.createElement('script');
     scriptTag.setAttribute('src', data.script);
-    scriptTag.setAttribute('id', `${this.currentPage.name}-resource`);
+    scriptTag.setAttribute('id', `${this.currentPage.slug}-resource`);
     document.head.appendChild(scriptTag);
   }
 
@@ -60,7 +60,7 @@ export class TestComponent implements OnInit {
 
   onNavLinkClicked(page: any): void {
     document
-      .querySelectorAll(`#${this.currentPage.name}-resource`)
+      .querySelectorAll(`#${this.currentPage.slug}-resource`)
       .forEach((elem) => document.head.removeChild(elem));
 
     this.currentPage = page;
