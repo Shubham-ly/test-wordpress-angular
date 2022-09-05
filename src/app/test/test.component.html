@@ -1,4 +1,6 @@
-<div *ngIf="isLoading; else showPage">Loading...</div>
+<main class="loading">
+  <div *ngIf="isLoading; else showPage">Loading...</div>
+</main>
 <ng-template #showPage>
   <main
     *ngIf="currentPageData !== undefined"

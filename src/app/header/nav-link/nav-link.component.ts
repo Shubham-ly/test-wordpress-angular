@@ -21,10 +21,10 @@ export class NavLinkComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  reloadCurrentPage(data: any) {
+  reloadCurrentPage(path: string, data: any) {
     localStorage.setItem('rxil-current-page', JSON.stringify(data));
     setTimeout(() => {
-      window.location.href = '/' + data.slug;
+      window.location.href = path;
     }, 0);
   }
 }

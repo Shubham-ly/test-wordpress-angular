@@ -5,8 +5,7 @@
     (clickOutside)="showSubLinks = false"
   >
     <a
-      (click)="reloadCurrentPage(navData)"
-      routerLink="{{ navData.slug }}"
+      (click)="reloadCurrentPage(navData.slug, navData)"
       [ngClass]="{ current: isActive }"
     >
       {{ navData.name }}
@@ -25,7 +24,11 @@
     *ngIf="navData.sub_links.length > 0"
   >
     <li *ngFor="let subLink of navData.sub_links">
-      {{ subLink.name }}
+      <a
+        (click)="reloadCurrentPage(navData.slug + '/#' + subLink.slug, navData)"
+      >
+        {{ subLink.name }}
+      </a>
     </li>
   </ul>
 </li>

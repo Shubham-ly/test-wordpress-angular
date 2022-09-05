@@ -19,8 +19,12 @@ export class TestComponent implements OnInit {
     const localStorageData = localStorage.getItem('rxil-current-page');
     if (localStorageData) {
       this.currentPage = JSON.parse(localStorageData);
+      if (this.currentPage.slug === 'news-events') {
+        console.log('news and events page');
+        return;
+      }
+      this.fetchCurrentPage();
     }
-    this.fetchCurrentPage();
   }
 
   ngOnChanges() {}

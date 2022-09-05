@@ -5,11 +5,11 @@ import { NewsCategoryService } from '../services/news-category-service/news-cate
 import { PostService } from '../services/post-service/post.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
+  selector: 'app-news',
+  templateUrl: './news.component.html',
+  styleUrls: ['./news.component.scss'],
 })
-export class HomeComponent implements OnInit {
+export class NewsComponent implements OnInit {
   posts: Post[] = [];
   filteredPosts: Post[] = [];
   categories: NewsCategory[] = [];

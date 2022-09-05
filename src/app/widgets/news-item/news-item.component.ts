@@ -44,7 +44,7 @@ export class NewsItemComponent implements OnInit {
   }
 
   onNewsClick(): void {
-    this.router.navigate(['/post/', this.news.ID], {
+    this.router.navigate(['/news-events/post/', this.news.ID], {
       state: { post: this.news },
     });
   }

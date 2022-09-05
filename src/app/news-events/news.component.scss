@@ -93,3 +93,23 @@
     }
   }
 }
+
+.header {
+  padding-top: 52px;
+  padding-bottom: 64px;
+  text-align: center;
+  background-color: #c7eafb42;
+
+  h2 {
+    color: $black;
+    font-weight: 800;
+    font-size: 32px;
+  }
+
+  p {
+    margin-top: 26px;
+    color: $secondaryTextColor;
+    max-width: 846px;
+    margin-inline: auto;
+  }
+}
