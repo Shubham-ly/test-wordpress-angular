@@ -1,0 +1,55 @@
+@import "../../../styles.scss";
+
+.resource-card {
+  max-width: 411px;
+  min-height: 339px;
+  position: relative;
+
+  .doc-preview {
+    height: 270px;
+    border: 1px solid #bcdff0;
+    border-radius: $borderRadius;
+    overflow: hidden;
+
+    embed {
+      overflow-y: hidden;
+    }
+  }
+
+  .title {
+    --number-of-lines: 2;
+    margin-top: 16px;
+    color: $black;
+  }
+
+  .date {
+    margin-top: 8px;
+    color: $secondaryTextColor;
+    font-size: 14px;
+  }
+
+  .category-chip {
+    --offset: 6px;
+    position: absolute;
+    top: var(--offset);
+    right: var(--offset);
+    font-size: 12px;
+    padding: 6px 8px;
+    border-radius: 5px;
+    font-weight: 400;
+    background-color: #e4dcca;
+
+    &.notifications {
+      background-color: #c7eafb;
+    }
+    &.circulars {
+      background-color: #fdd1b0;
+    }
+    &.disclosure {
+      background-color: #dde89a;
+    }
+    &.brochures {
+      background-color: #fdd1b0;
+    }
+  }
+}

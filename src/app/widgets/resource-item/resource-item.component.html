@@ -1,0 +1,21 @@
+<div class="resource-card">
+  <div class="doc-preview">
+    <embed
+      *ngIf="resource.post_mime_type === 'application/pdf'"
+      [src]="
+        resource.guid + '#toolbar=0&scrollbar=0&navpanes=0' | safe: 'resource'
+      "
+      type="application/pdf"
+      height="100%"
+      width="100%"
+    />
+  </div>
+  <p class="title truncate">{{ resource.post_title }}</p>
+  <p class="date">{{ postDate }}</p>
+
+  <div class="category-chip" [ngClass]="category.slug">
+    <span>{{ category.name }}</span>
+  </div>
+
+  <div class="actions"></div>
+</div>

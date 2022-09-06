@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Post } from 'types/post';
 import { environment } from '../../environments/environment';
 
@@ -8,7 +9,7 @@ import { environment } from '../../environments/environment';
   styleUrls: ['./test.component.scss'],
 })
 export class TestComponent implements OnInit {
-  @Input() currentPage = { name: 'Home', slug: 'home' };
+  currentPageSlug = 'home';
   currentPageData: Post | undefined;
   isLoading = true;
   apiUrl = environment.apiUrl;
@@ -16,35 +17,29 @@ export class TestComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
-    const localStorageData = localStorage.getItem('rxil-current-page');
-    if (localStorageData) {
-      this.currentPage = JSON.parse(localStorageData);
-      if (this.currentPage.slug === 'news-events') {
-        console.log('news and events page');
-        return;
-      }
-      this.fetchCurrentPage();
-    }
+    this.currentPageSlug =
+      window.location.pathname === '/' ? '/home' : window.location.pathname;
+    console.log(this.currentPageSlug);
+    this.fetchCurrentPage();
   }
 
   ngOnChanges() {}
 
   async fetchCurrentPageResources() {
-    console.count('Fetched Page');
     const res = await fetch(
-      `${this.apiUrl}/get-page-resources/${this.currentPage.slug}`
+      `${this.apiUrl}/get-page-resources${this.currentPageSlug}`
     );
     const data = await res.json();
     const scriptTag = document.createElement('script');
     scriptTag.setAttribute('src', data.script);
-    scriptTag.setAttribute('id', `${this.currentPage.slug}-resource`);
+    scriptTag.setAttribute('id', `${this.currentPageSlug}-resource`);
     document.head.appendChild(scriptTag);
   }
 
   async fetchCurrentPage() {
     this.isLoading = true;
     const res = await fetch(
-      `${this.apiUrl}/get-page-body/${this.currentPage.slug}`
+      `${this.apiUrl}/get-page-body${this.currentPageSlug}`
     );
     const data = await res.json();
     // @ts-ignore

@@ -77,11 +77,6 @@ export class NewsComponent implements OnInit {
     );
   }
 
-  #checkSelectedPostYear(post: Post): boolean {
-    const d = new Date(post.post_date);
-    return this.selectedYear === d.getFullYear();
-  }
-
   updatePosts(): void {
     if (this.selectedCategory === 0) {
       this.filteredPosts = this.posts;

@@ -21,14 +21,6 @@ export class PostService {
     };
   }
 
-  getCss(): Observable<CssData> {
-    const url = this.apiUrl + '/get-global-styles';
-    return this.http.get<CssData>(url).pipe(
-      tap((_) => console.log('Fetched css')),
-      catchError(this.handleError<CssData>('get css data'))
-    );
-  }
-
   getPosts({
     page = 1,
     year = 2022,

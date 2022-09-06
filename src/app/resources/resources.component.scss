@@ -1,0 +1,114 @@
+@import "../../styles.scss";
+
+.header {
+  padding-top: 52px;
+  padding-bottom: 64px;
+  text-align: center;
+  background-color: #c7eafb42;
+
+  h2 {
+    color: $black;
+    font-weight: 800;
+    font-size: 32px;
+  }
+
+  p {
+    margin-top: 24px;
+    color: $secondaryTextColor;
+    max-width: 846px;
+    margin-inline: auto;
+    font-size: 20px;
+  }
+}
+
+.year-filter {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+
+  p {
+    color: #1e2123;
+    font-size: 16px;
+    min-width: fit-content;
+    margin-bottom: 0;
+  }
+}
+
+.resource-container {
+  padding-inline: 72px;
+}
+
+.resource-item-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 400px);
+  gap: 32px;
+  row-gap: 63px;
+  margin-top: 48px;
+}
+
+.filter-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+.resource-category-selector {
+  display: flex;
+  flex: 1;
+  gap: 8px;
+  margin-block: 1em;
+}
+.resource-category {
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  padding: 16px 24px;
+  cursor: pointer;
+  font-size: 16px;
+  background-color: #f0f1f5;
+  font-size: 1rem;
+
+  &.selected {
+    background-color: $primary;
+    font-weight: 700;
+    color: white;
+  }
+}
+
+.pagination-container {
+  display: flex;
+  width: 100%;
+  margin-block: 52px;
+  justify-content: center;
+  gap: 16px;
+
+  .pagination-button {
+    font-family: $primaryFont;
+    padding: 15px 20px;
+    font-weight: 700;
+    font-size: 16px;
+    color: $primary;
+    border: 2px solid $primary;
+    border-radius: $borderRadius;
+    cursor: pointer;
+
+    &:hover {
+      background-color: unset;
+    }
+
+    &.selected {
+      background-color: $primary;
+      color: white;
+    }
+
+    &:disabled {
+      border-color: $borderColor;
+      cursor: not-allowed;
+    }
+
+    &:not(:disabled) img {
+      filter: invert(59%) sepia(11%) saturate(4734%) hue-rotate(179deg)
+        brightness(82%) contrast(91%);
+    }
+  }
+}

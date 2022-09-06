@@ -1,0 +1,75 @@
+<main>
+  <div class="header">
+    <h2>RXIL’s bank of resources</h2>
+    <p>Our data, available for you.</p>
+  </div>
+
+  <div class="resource-container">
+    <div class="filter-container">
+      <div class="resource-category-selector">
+        <div *ngFor="let category of categories">
+          <button
+            (click)="setSelectedCategory(category.id)"
+            class="resource-category"
+            [ngClass]="{ selected: selectedCategory === category.id }"
+          >
+            {{ category.name }}
+          </button>
+        </div>
+      </div>
+      <div class="year-filter">
+        <p>Filter by year:</p>
+        <dropdown-selector
+          [title]="'Year'"
+          [options]="dropdownOptions"
+          (currentValueChange)="dropdownValueChanged($event)"
+        ></dropdown-selector>
+      </div>
+    </div>
+
+    <div *ngIf="isLoading; else showPost">Loading...</div>
+
+    <ng-template #showPost>
+      <div class="resource-item-container">
+        <div *ngFor="let resource of filteredResources">
+          <resource-item [resource]="resource"></resource-item>
+        </div>
+      </div>
+    </ng-template>
+
+    <div *ngIf="totalPages > 1">
+      <div class="pagination-container">
+        <button
+          (click)="setCurrentSelectedPage(currentPage - 1)"
+          class="pagination-button"
+          [disabled]="currentPage === 1"
+        >
+          <img
+            src="/assets/images/pagination-arrow-left.svg"
+            alt="previous page"
+          />
+        </button>
+
+        <button
+          class="pagination-button"
+          [ngClass]="{ selected: currentPage === i + 1 }"
+          *ngFor="let page of [].constructor(totalPages); let i = index"
+          (click)="setCurrentSelectedPage(i + 1)"
+        >
+          {{ i + 1 }}
+        </button>
+
+        <button
+          (click)="setCurrentSelectedPage(currentPage + 1)"
+          class="pagination-button"
+          [disabled]="currentPage === totalPages"
+        >
+          <img
+            src="/assets/images/pagination-arrow-right.svg"
+            alt="previous page"
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+</main>

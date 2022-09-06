@@ -12,6 +12,11 @@ const routes: Routes = [
     loadChildren: () => import('./post/post.module').then((m) => m.PostModule),
   },
   {
+    path: 'resources',
+    loadChildren: () =>
+      import('./resources/resources.module').then((m) => m.ResourcesModule),
+  },
+  {
     path: ':slug',
     loadChildren: () => import('./test/test.module').then((m) => m.TestModule),
   },
