@@ -1,0 +1,66 @@
+@import "../../../../styles.scss";
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: flex-start;
+
+  .department {
+    display: flex;
+    gap: 8px;
+    border-radius: 16px;
+    padding: 8px 16px;
+    text-transform: uppercase;
+    flex-shrink: 1;
+    max-width: fit-content;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 700;
+
+    img {
+      max-width: 16px;
+      max-height: 16px;
+    }
+  }
+
+  .secondary-title {
+    font-size: 20px;
+  }
+}
+
+.meta-container {
+  display: flex;
+  margin-top: 20px;
+  gap: 16px;
+}
+.meta {
+  display: flex;
+  font-size: 14px;
+
+  img {
+    margin-right: 8px;
+  }
+
+  .key {
+    color: $black;
+  }
+  .value {
+    color: $secondaryTextColor;
+  }
+}
+
+.description {
+  --number-of-lines: 3;
+  color: $secondaryTextColor;
+  margin-top: 20px;
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+.cta {
+  color: $primary;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 16px;
+}

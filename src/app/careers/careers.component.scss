@@ -1,0 +1,63 @@
+@import "../../styles.scss";
+
+.current-openings {
+  padding: 48px 72px;
+
+  .header {
+    text-align: center;
+  }
+
+  .description {
+    color: $secondaryTextColor;
+    margin-top: 24px;
+  }
+
+  .jobs-container {
+    padding-top: 40px;
+  }
+}
+
+.job-item-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 33px;
+  column-gap: 48px;
+}
+
+.pagination-container {
+  display: flex;
+  width: 100%;
+  margin-block: 52px;
+  justify-content: center;
+  gap: 16px;
+
+  .pagination-button {
+    font-family: $primaryFont;
+    padding: 15px 20px;
+    font-weight: 700;
+    font-size: 16px;
+    color: $primary;
+    border: 2px solid $primary;
+    border-radius: $borderRadius;
+    cursor: pointer;
+
+    &:hover {
+      background-color: unset;
+    }
+
+    &.selected {
+      background-color: $primary;
+      color: white;
+    }
+
+    &:disabled {
+      border-color: $borderColor;
+      cursor: not-allowed;
+    }
+
+    &:not(:disabled) img {
+      filter: invert(59%) sepia(11%) saturate(4734%) hue-rotate(179deg)
+        brightness(82%) contrast(91%);
+    }
+  }
+}

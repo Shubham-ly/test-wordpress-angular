@@ -3,12 +3,7 @@ import { Injectable } from '@angular/core';
 import { catchError, Observable, of, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Post } from 'types/post';
-
-export type ResourceCategory = {
-  name: string;
-  slug: string;
-  id?: number;
-};
+import { ResourceCategoryType } from 'types/resource-category';
 
 @Injectable({
   providedIn: 'root',
@@ -26,11 +21,11 @@ export class ResourceService {
     };
   }
 
-  getCategories(): Observable<ResourceCategory[]> {
+  getCategories(): Observable<ResourceCategoryType[]> {
     const url = this.apiUrl + '/get-resource-categories';
-    return this.http.get<ResourceCategory[]>(url).pipe(
+    return this.http.get<ResourceCategoryType[]>(url).pipe(
       tap((data) => {}),
-      catchError(this.handleError<ResourceCategory[]>('Get categories'))
+      catchError(this.handleError<ResourceCategoryType[]>('Get categories'))
     );
   }
 

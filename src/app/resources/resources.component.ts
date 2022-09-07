@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from 'types/post';
-import {
-  ResourceCategory,
-  ResourceService,
-} from '../services/resource-service/resource.service';
+import { ResourceService } from '../services/resource-service/resource.service';
+import { ResourceCategoryType } from 'types/resource-category';
 
 @Component({
   selector: 'app-resources',
@@ -27,7 +25,7 @@ export class ResourcesComponent implements OnInit {
 
   constructor(private resourceService: ResourceService) {}
 
-  categories: ResourceCategory[] = [
+  categories: ResourceCategoryType[] = [
     {
       name: 'All',
       slug: 'all',

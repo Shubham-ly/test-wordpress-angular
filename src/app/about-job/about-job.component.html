@@ -1,0 +1,66 @@
+<main class="container">
+  <div *ngIf="isLoading; else showJob">Loading...</div>
+
+  <ng-template #showJob>
+    <div class="header">
+      <button (click)="onBackClick()" class="back">
+        <img
+          src="data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13.3333 10.6665L8 15.9998M8 15.9998L13.3333 21.3332M8 15.9998L24 15.9998' stroke='%231E2123' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"
+          alt=""
+        />
+        Back
+      </button>
+      <h2 class="secondary-title">{{ job.post_title }}</h2>
+      <div class="meta-container">
+        <div class="meta">
+          <img
+            src="data:image/svg+xml,%3Csvg width='16' height='17' viewBox='0 0 16 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_11_11664)'%3E%3Cpath d='M7.99935 8.4987C7.26602 8.4987 6.66602 7.8987 6.66602 7.16536C6.66602 6.43203 7.26602 5.83203 7.99935 5.83203C8.73268 5.83203 9.33268 6.43203 9.33268 7.16536C9.33268 7.8987 8.73268 8.4987 7.99935 8.4987ZM11.9993 7.2987C11.9993 4.8787 10.2327 3.16536 7.99935 3.16536C5.76602 3.16536 3.99935 4.8787 3.99935 7.2987C3.99935 8.8587 5.29935 10.9254 7.99935 13.392C10.6993 10.9254 11.9993 8.8587 11.9993 7.2987ZM7.99935 1.83203C10.7993 1.83203 13.3327 3.9787 13.3327 7.2987C13.3327 9.51203 11.5527 12.132 7.99935 15.1654C4.44602 12.132 2.66602 9.51203 2.66602 7.2987C2.66602 3.9787 5.19935 1.83203 7.99935 1.83203Z' fill='%2364607D'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_11_11664'%3E%3Crect width='16' height='16' fill='white' transform='translate(0 0.5)'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E%0A"
+            class="icon"
+          />
+          <p class="key">
+            Location: <span class="value">{{ job.location }}</span>
+          </p>
+        </div>
+        <div class="meta">
+          <img
+            src="data:image/svg+xml,%3Csvg width='16' height='17' viewBox='0 0 16 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13.334 4.4987C13.7207 4.4987 14.034 4.63203 14.2807 4.89203C14.534 5.16536 14.6673 5.46536 14.6673 5.83203V13.1654C14.6673 13.532 14.534 13.832 14.2807 14.1054C14.034 14.3654 13.7207 14.4987 13.334 14.4987H2.66732C2.28065 14.4987 1.96732 14.3654 1.72065 14.1054C1.46732 13.832 1.33398 13.532 1.33398 13.1654V5.83203C1.33398 5.46536 1.46732 5.16536 1.72065 4.89203C1.96732 4.63203 2.28065 4.4987 2.66732 4.4987H5.33398V3.16536C5.33398 2.7787 5.46732 2.46536 5.72065 2.2187C5.96732 1.96536 6.28065 1.83203 6.66732 1.83203H9.33398C9.72065 1.83203 10.034 1.96536 10.2807 2.2187C10.534 2.46536 10.6673 2.7787 10.6673 3.16536V4.4987H13.334ZM2.66732 5.83203V13.1654H13.334V5.83203H2.66732ZM9.33398 4.4987V3.16536H6.66732V4.4987H9.33398Z' fill='%2364607D'/%3E%3C/svg%3E%0A"
+            class="icon"
+          />
+          <p class="key">
+            Experience: <span class="value">{{ job.experience }}</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="job.introduction" class="info-container">
+      <h4 class="title">Introduction</h4>
+      <p>{{ job.introduction }}</p>
+    </div>
+
+    <div *ngIf="job.qualifications" class="info-container">
+      <h4 class="title">Qualifications</h4>
+      <p [innerHTML]="job.qualifications | safe"></p>
+    </div>
+
+    <div *ngIf="job.roles_and_responsibilites" class="info-container">
+      <h4 class="title">Roles and Responsibilites</h4>
+      <p [innerHTML]="job.roles_and_responsibilites | safe"></p>
+    </div>
+
+    <div *ngIf="job.additional_experience" class="info-container">
+      <h4 class="title">Additional Experience</h4>
+      <p [innerHTML]="job.additional_experience | safe"></p>
+    </div>
+
+    <div *ngIf="job.notice_period" class="info-container">
+      <h4 class="title">Notice Period</h4>
+      <p [innerHTML]="job.notice_period | safe"></p>
+    </div>
+
+    <div *ngIf="job.salary" class="info-container">
+      <h4 class="title">Salary</h4>
+      <p [innerHTML]="job.salary | safe"></p>
+    </div>
+  </ng-template>
+</main>

@@ -1,6 +1,6 @@
 import { DatePipe } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
-import { ResourceCategory } from 'src/app/services/resource-service/resource.service';
+import { ResourceCategoryType } from 'types/resource-category';
 import { Post } from 'types/post';
 
 @Component({
@@ -13,7 +13,7 @@ export class ResourceItemComponent implements OnInit {
   resource!: Post;
   isLoading = true;
 
-  category: ResourceCategory = {
+  category: ResourceCategoryType = {
     name: 'Notifications',
     slug: 'notifications',
   };

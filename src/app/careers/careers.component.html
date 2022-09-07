@@ -1,0 +1,58 @@
+<main>
+  <div *ngIf="pageContent !== undefined" [innerHTML]="pageContent | safe"></div>
+  <div class="current-openings">
+    <div class="header">
+      <h2 class="secondary-title">Current Openings</h2>
+      <p class="description">
+        We are looking for skilled people to join our team!
+      </p>
+    </div>
+
+    <div class="jobs-container">
+      <div *ngIf="jobsLoading; else showPost">Loading...</div>
+
+      <ng-template #showPost>
+        <div class="job-item-container">
+          <div *ngFor="let job of jobs">
+            <job-item [job]="job"></job-item>
+          </div>
+        </div>
+      </ng-template>
+
+      <div *ngIf="totalPages > 1">
+        <div class="pagination-container">
+          <button
+            (click)="setCurrentSelectedPage(currentPage - 1)"
+            class="pagination-button"
+            [disabled]="currentPage === 1"
+          >
+            <img
+              src="/assets/images/pagination-arrow-left.svg"
+              alt="previous page"
+            />
+          </button>
+
+          <button
+            class="pagination-button"
+            [ngClass]="{ selected: currentPage === i + 1 }"
+            *ngFor="let page of [].constructor(totalPages); let i = index"
+            (click)="setCurrentSelectedPage(i + 1)"
+          >
+            {{ i + 1 }}
+          </button>
+
+          <button
+            (click)="setCurrentSelectedPage(currentPage + 1)"
+            class="pagination-button"
+            [disabled]="currentPage === totalPages"
+          >
+            <img
+              src="/assets/images/pagination-arrow-right.svg"
+              alt="previous page"
+            />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

@@ -22,10 +22,11 @@
 
     <div class="link-container">
       <a href="/resources" class="title">Resources</a>
-      <a href="/notifications">Notifications</a>
-      <a href="/circulars">Circulars</a>
-      <a href="/brochures">Brochures</a>
-      <a href="/disclosure">Disclosure</a>
+      <a
+        *ngFor="let category of resourceCategories"
+        [href]="'/resources#' + category.slug"
+        >{{ category.name }}</a
+      >
     </div>
 
     <div class="link-container">

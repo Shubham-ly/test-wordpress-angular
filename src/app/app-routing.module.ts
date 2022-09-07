@@ -17,6 +17,16 @@ const routes: Routes = [
       import('./resources/resources.module').then((m) => m.ResourcesModule),
   },
   {
+    path: 'careers',
+    loadChildren: () =>
+      import('./careers/careers.module').then((m) => m.CareersModule),
+  },
+  {
+    path: 'careers/about/:id',
+    loadChildren: () =>
+      import('./about-job/about-job.module').then((m) => m.AboutJobModule),
+  },
+  {
     path: ':slug',
     loadChildren: () => import('./test/test.module').then((m) => m.TestModule),
   },

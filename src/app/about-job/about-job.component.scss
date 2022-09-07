@@ -1,0 +1,60 @@
+@import "../../styles.scss";
+
+.container {
+  padding-inline: 72px;
+
+  .header {
+    padding-top: 48px;
+    padding-bottom: 50px;
+    .back {
+      display: flex;
+      gap: 8px;
+      border: none;
+      align-items: center;
+      cursor: pointer;
+      font-size: 16px;
+    }
+  }
+
+  .secondary-title {
+    margin-top: 32px;
+  }
+}
+
+.meta-container {
+  display: flex;
+  margin-top: 20px;
+  gap: 16px;
+}
+.meta {
+  display: flex;
+  font-size: 14px;
+
+  img {
+    margin-right: 8px;
+  }
+
+  .key {
+    color: $black;
+  }
+  .value {
+    color: $secondaryTextColor;
+  }
+}
+
+.info-container {
+  margin-top: 32px;
+  .title {
+    font-size: 20px;
+    font-weight: 700;
+    color: $black;
+  }
+  p {
+    margin-top: 16px;
+    color: $secondaryTextColor;
+
+    li {
+      line-height: 24px;
+    }
+  }
+}
