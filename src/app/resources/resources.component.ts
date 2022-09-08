@@ -35,13 +35,17 @@ export class ResourcesComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCategories();
-    this.getResources();
   }
 
   getCategories(): void {
-    this.resourceService
-      .getCategories()
-      .subscribe((data) => (this.categories = [...this.categories, ...data]));
+    this.resourceService.getCategories().subscribe((data) => {
+      this.categories = [...this.categories, ...data];
+      const hash = location.hash.replace('#', '');
+      this.categories.forEach(({ slug, id }) => {
+        if (slug === hash) this.selectedCategory = id || 0;
+      });
+      this.getResources();
+    });
   }
 
   getResources(): void {
