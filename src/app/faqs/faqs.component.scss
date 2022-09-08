@@ -1,0 +1,126 @@
+@import "../../styles.scss";
+
+.header {
+  background-color: #c7eafb42;
+  height: 288px;
+  text-align: center;
+  position: relative;
+  padding-top: 52px;
+
+  p {
+    color: var(--color-secondary-purple);
+    font-size: 20px;
+    margin-top: 24px;
+    max-width: 74ch;
+    margin-inline: auto;
+  }
+
+  .search-bar-container {
+    bottom: -14%;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    display: flex;
+    gap: 24px;
+    padding: 20px 24px;
+    align-items: center;
+    box-shadow: 0px 2px 40px 0px #333d8317;
+    background-color: white;
+    border-radius: var(--border-radius);
+    width: 64%;
+    margin-inline: auto;
+
+    input {
+      all: unset;
+      text-align: left;
+      flex: 1;
+      border: none;
+      font-size: 20px;
+      outline: none;
+
+      &::placeholder {
+        color: var(--color-secondary-purple);
+      }
+
+      &::-webkit-search-cancel-button {
+        display: none;
+      }
+    }
+  }
+}
+
+.category-selector {
+  display: flex;
+  flex: 1;
+  gap: 8px;
+  margin-top: 72px;
+  justify-content: center;
+  .category {
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    padding: 16px 24px;
+    cursor: pointer;
+    font-size: 16px;
+    background-color: #f0f1f5;
+    font-size: 1rem;
+
+    &.selected {
+      background-color: $primary;
+      font-weight: 700;
+      color: white;
+    }
+  }
+}
+
+.questions-container {
+  margin-top: 48px;
+  padding-inline: 72px;
+  margin-bottom: 56px;
+
+  hr {
+    background-color: $primary;
+    opacity: 0.1;
+    height: 2px;
+    width: 100%;
+  }
+}
+
+summary {
+  padding: 25px 24px;
+  text-align: left;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+
+  .title {
+    flex: 1;
+    color: $black;
+    font-size: 18px;
+  }
+
+  &::marker {
+    display: none;
+  }
+  &::-webkit-details-marker {
+    display: none;
+  }
+
+  img {
+    transition-property: transform, filter;
+    transition-duration: 250ms;
+    transition-timing-function: ease-out;
+  }
+}
+.tab-content {
+  margin-inline: 24px;
+  font-size: 16px;
+  color: $secondaryTextColor;
+  margin-bottom: 24px;
+}
+
+details[open] summary img {
+  transform: rotateZ(-180deg);
+  filter: invert(61%) sepia(28%) saturate(3892%) hue-rotate(179deg)
+    brightness(82%) contrast(93%);
+}

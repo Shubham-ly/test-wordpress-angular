@@ -1,0 +1,59 @@
+<main>
+  <div class="header">
+    <h2 class="secondary-title">FAQs</h2>
+    <p>
+      Frequently Asked Questions (FAQs) - from users interested in the world of
+      TReDs to MSMEs interested in becoming a part of the world of invoice
+      discounting through RXIL. Questions and answers related to TReDS, TReDS
+      registration, factoring, RXIL workings, among others.
+    </p>
+    <div class="search-bar-container">
+      <img
+        src="data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M32.2917 32.625L23.4583 24.8333C22.625 25.5556 21.6597 26.1181 20.5625 26.5208C19.4653 26.9236 18.3194 27.125 17.125 27.125C14.2917 27.125 11.8958 26.1458 9.9375 24.1875C7.97917 22.2292 7 19.8472 7 17.0417C7 14.2639 7.97917 11.8958 9.9375 9.9375C11.8958 7.97917 14.2778 7 17.0833 7C19.8889 7 22.2708 7.97917 24.2292 9.9375C26.1875 11.8958 27.1667 14.2639 27.1667 17.0417C27.1667 18.2083 26.9653 19.3472 26.5625 20.4583C26.1597 21.5694 25.5833 22.5694 24.8333 23.4583L33.6667 31.25L32.2917 32.625ZM17.125 25.25C19.375 25.25 21.2917 24.4514 22.875 22.8542C24.4583 21.2569 25.25 19.3194 25.25 17.0417C25.25 14.7639 24.4583 12.8333 22.875 11.25C21.2917 9.66667 19.375 8.875 17.125 8.875C14.8194 8.875 12.875 9.66667 11.2917 11.25C9.70833 12.8333 8.91667 14.7639 8.91667 17.0417C8.91667 19.3194 9.70833 21.2569 11.2917 22.8542C12.875 24.4514 14.8194 25.25 17.125 25.25Z' fill='%231E2123'/%3E%3C/svg%3E%0A"
+        alt="search"
+      />
+      <input
+        id="searchInput"
+        type="search"
+        placeholder="Search for questions here..."
+      />
+    </div>
+  </div>
+
+  <div class="category-selector">
+    <div *ngFor="let category of categories">
+      <button
+        (click)="setSelectedCategory(category.id)"
+        class="category"
+        [ngClass]="{ selected: selectedCategory === category.id }"
+      >
+        {{ category.name }}
+      </button>
+    </div>
+  </div>
+
+  <div class="questions-container">
+    <div *ngFor="let question of filteredQuestions; let index = index">
+      <details>
+        <summary>
+          <span class="title">{{ index + 1 }}. {{ question.post_title }}</span>
+          <span
+            aria-labelledby="expand"
+            aria-label="expand"
+            aria-hidden="true"
+            class="icon"
+          ></span>
+          <img
+            src="data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0_544_2399' style='mask-type:alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='32' height='32'%3E%3Crect width='32' height='32' fill='%23D9D9D9'/%3E%3C/mask%3E%3Cg mask='url(%23mask0_544_2399)'%3E%3Cpath d='M16.0005 19.5335C15.845 19.5335 15.6952 19.5113 15.5512 19.4669C15.4063 19.4224 15.2783 19.3335 15.1672 19.2002L9.13385 13.2002C8.95608 13.0002 8.86719 12.7669 8.86719 12.5002C8.86719 12.2335 8.96719 12.0002 9.16719 11.8002C9.36719 11.6224 9.60052 11.5335 9.86719 11.5335C10.1339 11.5335 10.3672 11.6224 10.5672 11.8002L16.0005 17.2335L21.4672 11.8002C21.645 11.6002 21.8672 11.5055 22.1339 11.5162C22.4005 11.5277 22.6339 11.6224 22.8339 11.8002C23.0339 12.0002 23.1339 12.2389 23.1339 12.5162C23.1339 12.7944 23.0339 13.0224 22.8339 13.2002L16.8339 19.2002C16.7227 19.3335 16.5952 19.4224 16.4512 19.4669C16.3063 19.5113 16.1561 19.5335 16.0005 19.5335Z' fill='%231C1B1F'/%3E%3C/g%3E%3C/svg%3E%0A"
+            alt="toggle"
+          />
+        </summary>
+        <div class="tab-content">
+          {{ question.description }}
+        </div>
+      </details>
+
+      <hr *ngIf="index + 1 !== filteredQuestions.length" class="divider" />
+    </div>
+  </div>
+</main>
