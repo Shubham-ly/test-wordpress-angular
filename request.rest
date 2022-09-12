@@ -1,1 +1,5 @@
 GET http://127.0.0.1/blog/wp-json/wp/v2/get-post-data?page=21
+
+
+#####
+GET https://shubham-rxil.x10.mx/wp/wp-json/wp/v2/get-nav-links HTTP/1.1
