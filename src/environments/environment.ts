@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://127.0.0.1/blog/wp-json/wp/v2',
-  baseUrl: 'http://127.0.0.1/blog',
+  apiUrl: 'https://lemonyellow.net/clients/rxil/wp-json/wp/v2',
+  baseUrl: 'https://lemonyellow.net/clients/rxil/',
 };
 
 /*
